@@ -107,27 +107,61 @@ paraview cavity.foam &
 paraFoam &
 ```
 
-In ParaView:
-1. Click "Apply" to load the data
-2. Select field: "U" or "p"
-3. Click "Play" to animate through time
-4. Use "Stream Tracer" filter to see streamlines
+#### Basic workflow
+1. Click **Apply** to load the data
+2. Select field **U** or **p** in the toolbar dropdown
+3. Click **Play** to animate through time
+4. Use **Filters → Common → Stream Tracer** to see streamlines
+
+#### Pressure contour + velocity glyph overlay (recommended)
+
+This is the clearest way to see both pressure and velocity simultaneously:
+
+**Layer 1 — Pressure background:**
+1. Select `cavity.foam` in Pipeline Browser
+2. Change field to **p** in the toolbar dropdown
+3. The surface now shows the pressure colour map
+
+**Layer 2 — Velocity arrows on top:**
+1. With `cavity.foam` selected, go to **Filters → Common → Glyph**
+2. In Properties:
+   - **Glyph Type**: `Arrow`
+   - **Orientation Array**: `U`
+   - **Scale Array**: `U`, **Vector Scale Mode**: `Scale by Magnitude`
+   - **Scale Factor**: `0.1` (adjust until arrows are readable)
+3. Color the Glyph by **U → Magnitude**
+4. Click **Apply**
+
+**Fix for 2D z-fighting** (arrows disappearing into the surface):
+Since the cavity is one cell thick in z, glyphs and the surface are coplanar — they fight for the same pixel. Fix:
+1. Select **Glyph1** in Pipeline Browser
+2. **Filters → Common → Transform**
+3. Set **Translate Z = 0.001**
+4. Click Apply — glyphs now sit 1 mm in front of the surface
+
+#### Why only cell data icons in ParaView (no point icons)?
+
+OpenFOAM uses the **Finite Volume Method** — all field values (U, p) are stored as averages at **cell centres**, not at mesh vertices. ParaView shows a cell icon because the data lives in cells. To get smoother visualisation, apply **Filters → Cell Data to Point Data** which interpolates cell values to vertices. The underlying data doesn't change — it's display only.
 
 ---
 
 ## The Physics You Should See
 
-At Re = 100 (default case): one large clockwise vortex centered slightly off-center, with small corner vortices.
+**Re = 10** (default, ν = 0.01): One clean vortex sitting low in the cavity, biased toward bottom-left. Pressure nearly uniform — large ν means large pressure range is needed to drive flow against friction.
 
-At Re = 1000: the primary vortex moves toward center; secondary vortices grow.
+**Re = 100** (ν = 0.001): Vortex center shifts **upward and toward the geometric center**. Pressure range actually shrinks (fluid needs less pressure to move with lower viscosity), but becomes sharply concentrated in the top-right corner where the lid pushes fluid into the wall. Corner vortices exist but require mesh finer than 20×20 to resolve.
 
-At Re = 10000: flow becomes unsteady (you need a finer mesh and smaller timestep).
+**Re = 1000** (ν = 0.0001): Primary vortex nearly centered. Secondary corner vortices clearly visible on a refined mesh. Flow approaches the benchmark solution of Ghia et al. (1982).
 
-Reynolds number for this case:
+**Re = 10000**: Flow becomes unsteady — a steady solver will not converge. Requires `pimpleFoam`, a finer mesh, and a smaller timestep.
+
+Reynolds number for the default case:
 ```
 Re = U * L / ν = 1 * 0.1 / 0.01 = 10
 ```
 (default ν = 0.01 m²/s — very viscous, Re = 10, purely laminar)
+
+**Key counter-intuitive result**: Higher Re does NOT always mean larger pressure differences. For the cavity, lower viscosity means the fluid moves more freely — less pressure gradient is needed to drive it. What changes is *where* the pressure concentrates, not how large the total range is.
 
 ---
 

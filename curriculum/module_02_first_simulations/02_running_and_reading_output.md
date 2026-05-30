@@ -123,12 +123,17 @@ Floating point exception (core dumped)   ← solver crashed
 nan  nan  nan  nan               ← Not a Number — numerical blow-up
 ```
 
-Common causes of divergence:
-1. **Timestep too large**: Courant number > 1 — reduce `deltaT`
-2. **Bad mesh**: high non-orthogonality or skewness — fix mesh
-3. **Wrong boundary conditions**: e.g., inlet AND outlet both set to fixedValue pressure
-4. **Under-relaxation too high**: in simpleFoam, `relaxationFactors` > 0.9 can diverge
-5. **Wrong units**: forgot to use kinematic pressure (m²/s²) instead of Pa
+Common causes of divergence — always diagnose from the residual history before touching `deltaT`:
+
+| Cause | Symptom in log | Fix |
+|-------|---------------|-----|
+| Timestep too large (Co > 1) | residuals jump to 1e+10, then NaN | Reduce `deltaT` |
+| Bad mesh quality | residuals won't drop below 0.1 | Fix mesh — run `checkMesh` |
+| Wrong boundary conditions | residuals oscillate, never converge | Check BC types and values |
+| Wrong units (Pa instead of m²/s²) | residuals explode immediately | Recalculate — use kinematic p |
+| Under-relaxation too aggressive | residuals oscillate steadily | Reduce `relaxationFactors` in `fvSolution` |
+
+**Diagnostic rule**: check whether the residual jumps > 1 immediately (BC or units problem) vs. slowly climbs over time (timestep or mesh problem). The shape of the divergence tells you the cause.
 
 ---
 
