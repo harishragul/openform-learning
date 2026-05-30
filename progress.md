@@ -20,9 +20,9 @@
 - [x] Lesson 1.1 — What is CFD and why OpenFOAM?
 - [x] Lesson 1.2 — Installing and verifying OpenFOAM
 - [x] Lesson 1.3 — CFD governing equations (intuitive intro)
-- [ ] Lesson 1.4 — OpenFOAM case structure and file layout
-- [ ] Exercise 1A — Explore a tutorial case directory
-- [ ] Exercise 1B — Answer: what does each subdirectory contain?
+- [x] Lesson 1.4 — OpenFOAM case structure and file layout
+- [x] Exercise 1A — Explore a tutorial case directory
+- [x] Exercise 1B — Answer: what does each subdirectory contain?
 
 ### Module 02: First Simulations
 - [ ] Lesson 2.1 — The lid-driven cavity case (icoFoam)
