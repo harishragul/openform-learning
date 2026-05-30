@@ -19,7 +19,7 @@
 ### Module 01: Foundations
 - [x] Lesson 1.1 — What is CFD and why OpenFOAM?
 - [x] Lesson 1.2 — Installing and verifying OpenFOAM
-- [ ] Lesson 1.3 — CFD governing equations (intuitive intro)
+- [x] Lesson 1.3 — CFD governing equations (intuitive intro)
 - [ ] Lesson 1.4 — OpenFOAM case structure and file layout
 - [ ] Exercise 1A — Explore a tutorial case directory
 - [ ] Exercise 1B — Answer: what does each subdirectory contain?
