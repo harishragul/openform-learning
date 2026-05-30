@@ -25,12 +25,12 @@
 - [x] Exercise 1B — Answer: what does each subdirectory contain?
 
 ### Module 02: First Simulations
-- [ ] Lesson 2.1 — The lid-driven cavity case (icoFoam)
+- [x] Lesson 2.1 — The lid-driven cavity case (icoFoam)
 - [ ] Lesson 2.2 — Running a simulation step by step
 - [ ] Lesson 2.3 — Reading solver output and log files
 - [ ] Lesson 2.4 — Visualizing results in ParaView
-- [ ] Exercise 2A — Run cavity tutorial and capture screenshots
-- [ ] Exercise 2B — Change Reynolds number and observe flow change
+- [x] Exercise 2A — Run cavity tutorial and capture screenshots
+- [x] Exercise 2B — Change Reynolds number and observe flow change
 
 ### Module 03: Mesh Generation
 - [ ] Lesson 3.1 — Mesh concepts: cells, faces, nodes, zones
