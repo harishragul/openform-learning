@@ -26,8 +26,8 @@
 
 ### Module 02: First Simulations
 - [x] Lesson 2.1 — The lid-driven cavity case (icoFoam)
-- [ ] Lesson 2.2 — Running a simulation step by step
-- [ ] Lesson 2.3 — Reading solver output and log files
+- [x] Lesson 2.2 — Running a simulation step by step
+- [x] Lesson 2.3 — Reading solver output and log files
 - [ ] Lesson 2.4 — Visualizing results in ParaView
 - [x] Exercise 2A — Run cavity tutorial and capture screenshots
 - [x] Exercise 2B — Change Reynolds number and observe flow change
