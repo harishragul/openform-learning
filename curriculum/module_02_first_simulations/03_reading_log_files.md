@@ -99,6 +99,17 @@ Rule of thumb:
 
 The initial residual of each timestep ≈ the final residual of the previous timestep. As the simulation approaches steady state (or a periodic state), initial residuals stop decreasing.
 
+### Residual vs Correction — A Critical Distinction
+
+The residual is NOT the difference between two consecutive iteration values. That difference is called the **correction**.
+
+For a simple equation `2x = 10`:
+- x = 2.0 → residual = |10 - 4| = 6   (large)
+- x = 2.5 → residual = |10 - 5| = 5   (still large)
+- correction = 2.5 - 2.0 = 0.5         (small)
+
+A small correction does NOT mean a small residual. The solver could take tiny steps and still be far from satisfying the equation. This is why OpenFOAM uses residuals — not corrections — as convergence criteria. The residual measures equation satisfaction directly by plugging the current solution back into `A·x = b` and computing `|b - A·x|`.
+
 ---
 
 ## continuityErrors

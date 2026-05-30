@@ -8,9 +8,9 @@
 
 ## Current Status
 
-**Current Module**: Module 01 — Foundations
-**Current Lesson**: Not started yet
-**Overall Progress**: 0 / 8 modules complete
+**Current Module**: Module 02 — First Simulations
+**Current Lesson**: Lesson 2.4 — Visualizing results in ParaView (next)
+**Overall Progress**: 1 / 8 modules complete (Module 01 done)
 
 ---
 
@@ -31,6 +31,7 @@
 - [ ] Lesson 2.4 — Visualizing results in ParaView
 - [x] Exercise 2A — Run cavity tutorial and capture screenshots
 - [x] Exercise 2B — Change Reynolds number and observe flow change
+- [x] Exercise 2C — Read log file, identify Co > 1 issue, fix deltaT, verify residuals
 
 ### Module 03: Mesh Generation
 - [ ] Lesson 3.1 — Mesh concepts: cells, faces, nodes, zones
@@ -92,7 +93,8 @@
 
 | Date | Module | Lesson | Notes |
 |------|--------|--------|-------|
-| (none yet) | | | |
+| 2026-05-31 | Module 01 | All lessons + exercises | Completed full foundations module |
+| 2026-05-31 | Module 02 | Lessons 2.1–2.3, Exercises 2A–2C | Ran cavity at Re=10 and Re=100, caught Co>1 bug, fixed deltaT, read log files in depth |
 
 ---
 
