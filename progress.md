@@ -1,6 +1,7 @@
 # OpenFOAM Learning Progress
 
 ## Learner Profile
+
 - **Name**: Harish
 - **Started**: 2026-05-12
 - **OpenFOAM Version**: ESI v2512 (openfoam.com)
@@ -9,14 +10,15 @@
 ## Current Status
 
 **Current Module**: Module 02 — First Simulations
-**Current Lesson**: Lesson 2.4 — Visualizing results in ParaView (next)
-**Overall Progress**: 1 / 8 modules complete (Module 01 done)
+**Current Lesson**: Module 02 complete — next is Module 03: Mesh Generation
+**Overall Progress**: 2 / 8 modules complete (Modules 01 and 02 done)
 
 ---
 
 ## Module Progress
 
 ### Module 01: Foundations
+
 - [x] Lesson 1.1 — What is CFD and why OpenFOAM?
 - [x] Lesson 1.2 — Installing and verifying OpenFOAM
 - [x] Lesson 1.3 — CFD governing equations (intuitive intro)
@@ -25,15 +27,18 @@
 - [x] Exercise 1B — Answer: what does each subdirectory contain?
 
 ### Module 02: First Simulations
+
 - [x] Lesson 2.1 — The lid-driven cavity case (icoFoam)
 - [x] Lesson 2.2 — Running a simulation step by step
 - [x] Lesson 2.3 — Reading solver output and log files
-- [ ] Lesson 2.4 — Visualizing results in ParaView
+- [x] Lesson 2.4 — Visualizing results in ParaView
 - [x] Exercise 2A — Run cavity tutorial and capture screenshots
 - [x] Exercise 2B — Change Reynolds number and observe flow change
 - [x] Exercise 2C — Read log file, identify Co > 1 issue, fix deltaT, verify residuals
+- [x] Exercise 2D — Plot Over Line, Probe Location, locked animation
 
 ### Module 03: Mesh Generation
+
 - [ ] Lesson 3.1 — Mesh concepts: cells, faces, nodes, zones
 - [ ] Lesson 3.2 — blockMesh: structured grids from scratch
 - [ ] Lesson 3.3 — Mesh grading and refinement
@@ -43,6 +48,7 @@
 - [ ] Exercise 3B — Refine near a wall and compare y+ values
 
 ### Module 04: Boundary Conditions
+
 - [ ] Lesson 4.1 — BC fundamentals: Dirichlet, Neumann, Robin
 - [ ] Lesson 4.2 — Velocity inlet/outlet conditions
 - [ ] Lesson 4.3 — Pressure boundary conditions
@@ -52,6 +58,7 @@
 - [ ] Exercise 4B — Apply a parabolic velocity inlet (groovyBC / codedFixedValue)
 
 ### Module 05: Solvers
+
 - [ ] Lesson 5.1 — Solver families: what problem do they solve?
 - [ ] Lesson 5.2 — icoFoam and simpleFoam (incompressible)
 - [ ] Lesson 5.3 — pimpleFoam and pisoFoam (transient)
@@ -62,6 +69,7 @@
 - [ ] Exercise 5B — Compare SIMPLE vs PIMPLE on a channel flow
 
 ### Module 06: Turbulence Modeling
+
 - [ ] Lesson 6.1 — Why turbulence models? Reynolds decomposition
 - [ ] Lesson 6.2 — RANS models: k-epsilon, k-omega SST
 - [ ] Lesson 6.3 — Wall functions and y+ requirements
@@ -71,6 +79,7 @@
 - [ ] Exercise 6B — Compare k-eps vs k-omega SST results
 
 ### Module 07: Post-Processing
+
 - [ ] Lesson 7.1 — ParaView workflow for OpenFOAM results
 - [ ] Lesson 7.2 — functionObjects: probes, forces, averaging
 - [ ] Lesson 7.3 — Sample and surface extraction
@@ -79,6 +88,7 @@
 - [ ] Exercise 7B — Extract a velocity profile at a cross-section
 
 ### Module 08: Advanced Topics
+
 - [ ] Lesson 8.1 — Writing a custom solver from scratch
 - [ ] Lesson 8.2 — Custom boundary conditions with codedFixedValue
 - [ ] Lesson 8.3 — Parallel decomposition and HPC runs
@@ -91,12 +101,15 @@
 
 ## Completed Sessions Log
 
-| Date | Module | Lesson | Notes |
-|------|--------|--------|-------|
-| 2026-05-31 | Module 01 | All lessons + exercises | Completed full foundations module |
-| 2026-05-31 | Module 02 | Lessons 2.1–2.3, Exercises 2A–2C | Ran cavity at Re=10 and Re=100, caught Co>1 bug, fixed deltaT, read log files in depth |
+| Date       | Module     | Lessons Covered                  | Notes                                                                                  |
+|------------|------------|----------------------------------|----------------------------------------------------------------------------------------|
+| 2026-05-31 | Module 01  | All lessons + exercises          | Completed full foundations module                                                      |
+| 2026-05-31 | Module 02  | All lessons 2.1–2.4, exercises 2A–2D | Ran cavity Re=10 and Re=100, caught Co>1 bug, read logs, visualized in ParaView   |
 
 ---
 
 ## Notes & Questions to Revisit
-(Agent will add learner questions and observations here)
+
+- Residual vs correction distinction — closed via 2x=10 example (2026-05-31)
+- Co > 1 bug caught in Re=100 run — fixed with deltaT=0.001 (2026-05-31)
+- Steady-state observation: Re=100 cavity pressure barely changes over time → candidate for simpleFoam
