@@ -40,7 +40,7 @@
 ### Module 03: Mesh Generation
 
 - [x] Lesson 3.1 — Mesh concepts: cells, faces, nodes, zones
-- [ ] Lesson 3.2 — blockMesh: structured grids from scratch
+- [x] Lesson 3.2 — blockMesh: structured grids from scratch
 - [ ] Lesson 3.3 — Mesh grading and refinement
 - [ ] Lesson 3.4 — snappyHexMesh: meshing around complex geometry
 - [ ] Lesson 3.5 — checkMesh and mesh quality metrics
