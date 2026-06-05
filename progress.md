@@ -41,11 +41,12 @@
 
 - [x] Lesson 3.1 — Mesh concepts: cells, faces, nodes, zones
 - [x] Lesson 3.2 — blockMesh: structured grids from scratch
-- [ ] Lesson 3.3 — Mesh grading and refinement
+- [x] Lesson 3.3 — Mesh grading and refinement
 - [ ] Lesson 3.4 — snappyHexMesh: meshing around complex geometry
 - [ ] Lesson 3.5 — checkMesh and mesh quality metrics
-- [ ] Exercise 3A — Build a 2D channel mesh with blockMesh
-- [ ] Exercise 3B — Refine near a wall and compare y+ values
+- [x] Exercise 3A — Inspect cavity mesh with checkMesh (400 cells, perfect quality)
+- [x] Exercise 3B — Build 2D channel mesh with blockMesh (8000 cells, aspect ratio ~10)
+- [x] Exercise 3C — Mesh independence study; grading sensitivity; y+ workflow
 
 ### Module 04: Boundary Conditions
 

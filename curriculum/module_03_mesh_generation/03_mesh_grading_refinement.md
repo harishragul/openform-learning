@@ -46,10 +46,17 @@ H = h × (r^(1/(N-1))^N - 1) / (r^(1/(N-1)) - 1)
 
 In practice, you don't solve this by hand — you choose r and N, then blockMesh computes h.
 
-**The key relationship**:
-- r > 1: cells grow from bottom to top (coarsen away from bottom)
-- r < 1: cells shrink from bottom to top (refine toward bottom)
-- r = 0.1: first cell is 10× smaller than last → strong refinement at y=0
+**The key relationship** — r = last cell size / first cell size:
+
+| r | Meaning | Small cells at | Refinement at |
+|---|---------|---------------|----------------|
+| r = 10 | last is 10× bigger than first | start (first) | **start of block** |
+| r = 0.1 | last is 10× smaller than first | end (last) | **end of block** |
+| r = 1 | equal sizes | everywhere | uniform |
+
+Memory rule: **r > 1 → refine at start. r < 1 → refine at end.**
+
+For a y-block going bottom (y=0) → top (y=H): r > 1 refines at the bottom wall, r < 1 refines at the top wall.
 
 ---
 
