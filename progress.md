@@ -43,7 +43,7 @@
 - [x] Lesson 3.2 — blockMesh: structured grids from scratch
 - [x] Lesson 3.3 — Mesh grading and refinement
 - [x] Lesson 3.4 — snappyHexMesh: meshing around complex geometry
-- [ ] Lesson 3.5 — checkMesh and mesh quality metrics
+- [x] Lesson 3.5 — checkMesh and mesh quality metrics
 - [x] Exercise 3A — Inspect cavity mesh with checkMesh (400 cells, perfect quality)
 - [x] Exercise 3B — Build 2D channel mesh with blockMesh (8000 cells, aspect ratio ~10)
 - [x] Exercise 3C — Mesh independence study; grading sensitivity; y+ workflow
@@ -103,11 +103,11 @@
 
 ## Completed Sessions Log
 
-| Date       | Module     | Lessons Covered                  | Notes                                                                                  |
-|------------|------------|----------------------------------|----------------------------------------------------------------------------------------|
-| 2026-05-31 | Module 01  | All lessons + exercises          | Completed full foundations module                                                      |
-| 2026-05-31 | Module 02  | All lessons 2.1–2.4, exercises 2A–2D | Ran cavity Re=10 and Re=100, caught Co>1 bug, read logs, visualized in ParaView   |
-| 2026-06-05 | Module 03  | Lessons 3.1–3.4, exercises 3A–3D     | blockMesh channel, mesh independence, grading ratio correction, snappyHexMesh sphere |
+| Date       | Module    | Lessons Covered                       | Notes                                                                              |
+|------------|-----------|---------------------------------------|------------------------------------------------------------------------------------|
+| 2026-05-31 | Module 01 | All lessons + exercises               | Completed full foundations module                                                  |
+| 2026-05-31 | Module 02 | All lessons 2.1-2.4, exercises 2A-2D | Ran cavity Re=10 and Re=100, caught Co>1 bug, read logs, visualized in ParaView   |
+| 2026-06-05 | Module 03 | Lessons 3.1-3.5, exercises 3A-3D     | blockMesh channel, mesh independence, grading ratio correction, snappyHexMesh sphere |
 
 ---
 
