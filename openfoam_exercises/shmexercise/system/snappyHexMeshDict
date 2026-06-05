@@ -1,0 +1,119 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+
+// Which phases to run
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+geometry
+{
+    sphere.stl
+    {
+        type triSurfaceMesh;
+        name sphere;
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells   500000;
+    maxGlobalCells  2000000;
+    minRefinementCells 5;
+    nCellsBetweenLevels 3;
+
+    features
+    (
+        {
+            file "sphere.eMesh";
+            level 2;
+        }
+    );
+
+    refinementSurfaces
+    {
+        sphere
+        {
+            level (2 3);   // min 2, max 3 near the sphere surface
+        }
+    }
+
+    refinementRegions
+    {
+        // none needed for this exercise
+    }
+
+    // A point GUARANTEED to be inside the fluid (not inside the sphere)
+    // Sphere is at (1.0, 1.0, 1.0) radius 0.25 — point (3.0, 1.0, 1.0) is downstream in fluid
+    locationInMesh (3.0 1.0 1.0);
+
+    resolveFeatureAngle 30;   // edges sharper than 30° are resolved
+
+    allowFreeStandingZoneFaces true;
+}
+
+snapControls
+{
+    nSmoothPatch    3;
+    tolerance       2.0;
+    nSolveIter      30;
+    nRelaxIter      5;
+    nFeatureSnapIter 10;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+}
+
+addLayersControls
+{
+    relativeSizes true;
+
+    layers
+    {
+        sphere
+        {
+            nSurfaceLayers 4;
+        }
+    }
+
+    expansionRatio      1.3;
+    finalLayerThickness 0.3;
+    minThickness        0.1;
+    nGrow               0;
+    featureAngle        60;
+    slipFeatureAngle    30;
+    nRelaxIter          3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals      3;
+    nSmoothThickness    10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle  90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter          50;
+}
+
+meshQualityControls
+{
+    maxNonOrtho         65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave          80;
+    minVol              1e-13;
+    minTetQuality       1e-30;
+    minArea             -1;
+    minTwist            0.05;
+    minDeterminant      0.001;
+    minFaceWeight       0.05;
+    minVolRatio         0.01;
+    minTriangleTwist    -1;
+    nSmoothScale        4;
+    errorReduction      0.75;
+}
+
+debug 0;
+mergeTolerance 1e-6;

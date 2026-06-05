@@ -1,0 +1,17 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      surfaceFeatureExtractDict;
+}
+
+sphere.stl
+{
+    extractionMethod    extractFromSurface;
+
+    // Edges sharper than (180 - 150) = 30 degrees are feature edges
+    includedAngle       150;
+
+    writeObj            yes;    // write .obj file for visualisation
+}
